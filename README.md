@@ -1,0 +1,2 @@
+# spring-beanstalk
+AWSにDeployしたもの
