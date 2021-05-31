@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>ToDo</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/app.css" />
+</head>
+<body>
+  <header class="mb-5">
+    <nav class="navbar navbar-light bg-light">
+      <a href="/" class="navbar-brand">ToDo</a>
+    </nav>
+  </header>
+  <main>
+    <div class="todo-container">
+
+        <h1 class="h3 mb-4">タスク一覧</h1>
+
+        <table class="table table-bordered mb-3">
+          <thead>
+            <tr>
+              <th>状態</th>
+              <th>タスク</th>
+              <th>期限</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr th:each="task : ${tasks}">
+                <td th:text="${task.status} ? '完了' : '未完了'"></td>
+                <td th:text="${task.title}"></td>
+                <td th:text="${#dates.format(task.lmt, 'yyyy/MM/dd')}"></td>
+                <td th:if="${task.status}" class="text-center">-</td>
+                <td th:unless="${task.status}" class="text-center">
+                    <form action="/complete" method="post">
+                    <input type="hidden" th:value="${task.id}" th:attr="name='id'"/>
+                    <button class="btn btn-sm btn-primary" type="submit">OK</button>
+                    </form>
+                </td>
+           </tr>
+          </tbody>
+        </table>
+
+        <div class="text-right">
+          <a href="/add" class="btn btn-outline-primary">タスクを追加する</a>
+        </div>
+
+      </div>
+  </main>
+</body>
+</html>

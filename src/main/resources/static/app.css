@@ -1,0 +1,13 @@
+.todo-container {
+  margin: 0 auto;
+  max-width: 840px;
+  padding: 0 2%;
+}
+
+.table th {
+  text-align: center;
+}
+
+.table td {
+  vertical-align: middle;
+}
