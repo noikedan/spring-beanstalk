@@ -1,5 +1,5 @@
 # spring-beanstalk
-##　理由・背景
+## 理由・背景
 タスク管理アプリをAWSにDeployしたもの  
 http://springmybatis-env.eba-fb6zgdsj.ap-northeast-1.elasticbeanstalk.com/
 
